@@ -6,7 +6,7 @@ class DifferenceBetweenLambdaAndAnonymousInnerClass {
         Object innerclass = new Runnable() {
             @Override
             public void run() {
-                System.out.println("test");
+                System.out.println("playground");
             }
         };
 

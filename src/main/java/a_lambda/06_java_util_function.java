@@ -13,7 +13,7 @@ class JavaUtilFunction {
         BiFunction<Double, Integer, String> bifunc = (x, y) -> "result: " + ( x * y );
         Supplier<String> supplier = () -> "TEST";
         Consumer<String> consumer = x -> System.out.println(x);
-        Predicate<String> predicate = x -> x.equals("test");
+        Predicate<String> predicate = x -> x.equals("playground");
 
     }
 }

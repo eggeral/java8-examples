@@ -30,7 +30,7 @@ class LambdaSyntax {
         Collections.sort(aList, (lhs, rhs) -> Integer.compare(lhs.length(), rhs.length()));
 
         //If the lambda has no parameters () still is needed.
-        CompletableFuture.runAsync(() -> System.out.println("test"));
+        CompletableFuture.runAsync(() -> System.out.println("playground"));
 
         //If the lambda has only one parameter the () can be omitted.
         List<String> modifiableList = new ArrayList<>(aList);

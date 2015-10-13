@@ -15,7 +15,7 @@ class OptionalType {
         // flight.contains("bla"); // null pointer exception!
 
         // so we always have to check for null
-        if (flight != null && flight.equals("test")) // null safe check ;-)
+        if (flight != null && flight.equals("playground")) // null safe check ;-)
             System.out.println("This is a test flight");
 
         // Null is evil. Optional is better!
@@ -24,19 +24,19 @@ class OptionalType {
 
         // We also have to check for existence here.
         // So how does this help?
-        if (flightOptional.isPresent() && flight.equals("test"))
+        if (flightOptional.isPresent() && flight.equals("playground"))
             System.out.println("This is a test flight");
 
         // Try this
         flightOptional.ifPresent(x -> {
-            if (x.equals("test"))
+            if (x.equals("playground"))
                 System.out.println("This is a test flight");
         });
 
         System.out.println("---");
         // Or even better
-        flightOptional = Optional.of("test");
-        flightOptional.filter(x -> x.equals("test")).ifPresent(System.out::println);
+        flightOptional = Optional.of("playground");
+        flightOptional.filter(x -> x.equals("playground")).ifPresent(System.out::println);
         // Optionals can be consumed more than once!!!
         System.out.println(flightOptional.filter(x -> x.equals("test1")).isPresent());
         System.out.println("---");

@@ -1,11 +1,11 @@
-package test;
+package c_time;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.TemporalAdjusters;
 
-public class Friday13th {
+class Friday13th {
     public static void main(String[] args) {
         LocalDate start = LocalDate.of(2015, 01, 01);
         Period period = Period.ofMonths(500);

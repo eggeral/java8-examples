@@ -1,17 +1,19 @@
-package playground;
+package d_concurrency;
 
 import java.io.File;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 
-public class UiAppSim {
+class UiSim {
+
     static class ProgressBar {
         private double max;
 
         ProgressBar(double max) {
             this.max = max;
         }
+
         public void progress(int progress) {
             System.out.print((100 / max) * progress);
             System.out.println(" %");

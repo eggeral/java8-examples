@@ -13,7 +13,7 @@ class AverageCalculatorLambda {
             this.valueSupplier = valueSupplier;
         }
 
-        double calcluteAverage() {
+        double calculateAverage() {
             List<Double> values = valueSupplier.get();
             double sum =0;
             for (Double value : values) {
@@ -29,10 +29,10 @@ class AverageCalculatorLambda {
             //Assume we open the file and parse the values here!
             return Arrays.asList(1.0,2.0,3.0);
         });
-        System.out.println(averageCalculator.calcluteAverage());
+        System.out.println(averageCalculator.calculateAverage());
 
         averageCalculator = new AverageCalculator(() -> Arrays.asList(10.0,20.0,30.0));
-        System.out.println(averageCalculator.calcluteAverage());
+        System.out.println(averageCalculator.calculateAverage());
     }
 
 }

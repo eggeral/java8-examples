@@ -6,7 +6,7 @@ import java.util.List;
 class AverageCalculatorAbstract {
     static abstract class AbstractAverageCalculator {
 
-        double calcluteAverage() {
+        double calculateAverage() {
             List<Double> values = getValues();
             double sum =0;
             for (Double value : values) {
@@ -44,10 +44,10 @@ class AverageCalculatorAbstract {
 
     public static void main(String[] args) {
         AbstractAverageCalculator averageCalculator = new FileAverageCalculator("test.csv");
-        System.out.println(averageCalculator.calcluteAverage());
+        System.out.println(averageCalculator.calculateAverage());
 
         averageCalculator = new DummyAverageCalculator();
-        System.out.println(averageCalculator.calcluteAverage());
+        System.out.println(averageCalculator.calculateAverage());
     }
 
 }

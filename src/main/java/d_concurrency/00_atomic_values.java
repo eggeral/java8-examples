@@ -8,7 +8,7 @@ class AtomicValues {
 
     public static void main(String[] args) throws InterruptedException {
         Runnable adder = () -> {
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 10_000; i++) {
                 shared++;
             }
         };
@@ -17,7 +17,7 @@ class AtomicValues {
         System.out.println(shared);
 
         Runnable adderWithAtomic = () -> {
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 10_000; i++) {
                 atomicShared.incrementAndGet();
             }
         };
@@ -28,7 +28,7 @@ class AtomicValues {
         atomicShared.set(0);
         // A more complex situation!
         Runnable notSoAtomic = () -> {
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 10_000; i++) {
                 int oldValue = atomicShared.get();
                 atomicShared.set(++oldValue);
             }
@@ -39,7 +39,7 @@ class AtomicValues {
 
         atomicShared.set(0);
         Runnable atomicAgain = () -> {
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 10_000; i++) {
                 int oldValue;
                 int newValue;
                 do {
@@ -55,7 +55,7 @@ class AtomicValues {
         // Two new methods help avoid the loop above
         atomicShared.set(0);
         Runnable updateAndGet = () -> {
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 10_000; i++) {
                 atomicShared.updateAndGet(x -> x + 1);
             }
         };
@@ -65,7 +65,7 @@ class AtomicValues {
 
         atomicShared.set(0);
         Runnable accumulateAndGet = () -> {
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 10_000; i++) {
                 atomicShared.accumulateAndGet(1, (prev, next) -> prev + next);
             }
         };

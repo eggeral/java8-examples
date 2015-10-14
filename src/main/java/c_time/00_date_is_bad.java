@@ -23,7 +23,12 @@ class DateIsBad {
         System.out.println(format.format(new Date(2015, 1, 23))); // this is actually february!
 
         // Year starts with 0 at 1900
+        System.out.println(new Date(2015,1,1).getYear());
         System.out.println(new Date().getYear());
+
+
+        //Day is one based but can be set 0 // ?? TRUE???
+        Date date = new Date(0,0,0);
 
         // Leap seconds are fun
 

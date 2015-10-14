@@ -14,7 +14,7 @@ class CompletableFutures {
         System.out.println("---");
 
         CompletableFuture future = CompletableFuture.supplyAsync(() -> doWork("w1", 99));
-        // normally there is not need to wait for a completable future!
+        // normally there is no need to wait for a completable future!
         future.get();
         System.out.println("---");
 
@@ -23,7 +23,7 @@ class CompletableFutures {
                 .thenAcceptBoth(CompletableFuture.supplyAsync(
                                 () -> doWork("w2", 23)),
                         (result1, result2) -> System.out.println("sum = " + (result1 + result2)));
-        future.get();
+        ForkJoinPool.commonPool().awaitQuiescence(10, TimeUnit.SECONDS);
     }
 
     private static Long doWork(String worker, long result) {

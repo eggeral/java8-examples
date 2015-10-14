@@ -9,7 +9,8 @@ class FibonacciRecursive {
         System.out.println(fibonacci(4));
         System.out.println(fibonacci(5));
         System.out.println(fibonacci(6));
-        System.out.println(fibonacci(45));   }
+        System.out.println(fibonacci(45));
+    }
 
     public static int fibonacci(int n) {
         if (n == 0)

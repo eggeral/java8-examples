@@ -8,7 +8,6 @@ class FilterMinMax {
         private final double value;
 
         MeasurementPoint(long timestamp, double value) {
-
             this.timestamp = timestamp;
             this.value = value;
         }

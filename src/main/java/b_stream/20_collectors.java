@@ -9,6 +9,8 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// Create a list/map/... from a stream (or a single value like a string ;-)
+// -> reduce is a special kind of collect.
 class CollectorsUsage {
     static class Flight {
         int passengers;
@@ -35,21 +37,25 @@ class CollectorsUsage {
         System.out.println("--");
 
         Collector<String, StringBuilder, String> myCollector = new Collector<String, StringBuilder, String>() {
+            // Function which supplies the identity value
             @Override
             public Supplier supplier() {
                 return () -> new StringBuilder();
             }
 
+            // Add a value to existing collection
             @Override
             public BiConsumer<StringBuilder, String> accumulator() {
                 return (current, next) -> current.append(next).append(" - ");
             }
 
+            // Combine two collections
             @Override
             public BinaryOperator<StringBuilder> combiner() {
                 return (lhs, rhs) -> lhs.append(rhs);
             }
 
+            // Function to run after everything was collected
             @Override
             public Function<StringBuilder, String> finisher() {
                 return result -> result.toString();

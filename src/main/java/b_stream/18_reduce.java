@@ -3,6 +3,7 @@ package b_stream;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+// Reduce a stream to a single value
 class Reduce {
     static class Flight {
         int passengers;
@@ -20,7 +21,7 @@ class Reduce {
         System.out.println("--");
 
         // As long as the reduce operation is associative the operation is parallelizable.
-        // (sum is subtraction is not!). We will have a look at parallel streams later.
+        // (sum is but subtraction is not!). We will have a look at parallel streams later.
 
         // Sum with a start value (identity value)
         int intSum = Stream.of(1, 2, 3, 4).reduce(11, (current, next) -> current + next);

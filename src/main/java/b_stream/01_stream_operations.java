@@ -21,7 +21,7 @@ class StreamOperations {
         // Stream pipelines consist of a source followed be 0 ore more intermediate
         // operations and a terminal operation
 
-        // Stream consumed. The flowing fails!
+        // Stream consumed. The following statement fails!
         stream.count();
 
     }

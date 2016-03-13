@@ -4,10 +4,25 @@ import java.util.function.Function;
 
 class LambdasCanCaptureVariablesFromTheirLexicalEnvironment {
 
+    public static class CaptureTest {
+        private int field;
+
+        public CaptureTest(int fieldValue) {
+            field = fieldValue;
+        }
+
+        public Function<Integer, String> buildMeALambda() {
+            int var = field * 2;
+            return (param) -> "Values are: " + var + " - " + field * param;
+        }
+    }
+
+
     public static void main(String[] args) {
         CaptureTest captureTest = new CaptureTest(42);
         Function<Integer, String> func = captureTest.buildMeALambda();
-        // The generated func object has 2 fields. One is the object where the lambda is created (captureTest)
+        // This shows how the lambda in CaptureTest captures local variables and fields.
+        // The generated object of type Function has 2 fields. One is the object where the lambda is created (captureTest)
         // the other is an int field containing the value of var. This is how the environment of the lambda is
         // captured. These fields are then used when calling apply(...)
         System.out.println(func.apply(5));
@@ -17,29 +32,32 @@ class LambdasCanCaptureVariablesFromTheirLexicalEnvironment {
 
         // We see here that the actual lambda method stays with the object where the lambda is defined.
 
+        // This is how [(param) -> "Values are: " + var + " - " + field * param;] looks like.
         /*
          * Decompiled generated object (Functional Interface)
          *
-         * package learning.java.functional.interfaces;
+         * package a_lambda;
          * 
          * import java.lang.invoke.LambdaForm.Hidden;
          * import java.util.function.Function;
-         * import learning.java.functional.interfaces.LambdasCanCaptureVariablesFromTheirLexicalEnvironment.CaptureTest;
+         * import a_lambda.LambdasCanCaptureVariablesFromTheirLexicalEnvironment.CaptureTest;
          * 
          * // $FF: synthetic class final
          * class LambdasCanCaptureVariablesFromTheirLexicalEnvironment$CaptureTest$$Lambda$1 implements Function {
-         *   private final CaptureTest arg$1;
-         *   private final int arg$2;
+         *   private final CaptureTest arg$1; // this is needed in order to capture the fields of the surrounding object of the lambda
+         *   private final int arg$2; // this is the capture of the local variable
          * 
          *   private LambdasCanCaptureVariablesFromTheirLexicalEnvironment$CaptureTest$$Lambda$1(CaptureTest var1, int var2) {
          *     this.arg$1 = var1;
          *     this.arg$2 = var2;
          *   }
-         * 
+         *
+         * // A simple factory method
          * private static Function get$Lambda(CaptureTest var0, int var1) {
          *   return new LambdasCanCaptureVariablesFromTheirLexicalEnvironment$CaptureTest$$Lambda$1(var0, var1);
          * }
-         * 
+         *
+         * // call to [return "Values are: " + var + " - " + field * param;] which was generated in the class CaptureTest
          * @Hidden public Object apply(Object var1) {
          *   //The actual lambda method stays with the object where the lambda is defined! return
          *   this.arg$1.lambda$buildMeALambda$0(this.arg$2, (Integer)var1);
@@ -57,22 +75,14 @@ class LambdasCanCaptureVariablesFromTheirLexicalEnvironment {
          *   private int field;
          *   public learning.java.functional.interfaces.LambdasCanCaptureVariablesFromTheirLexicalEnvironment$CaptureTest(int);
          *   public java.util.function.Function<java.lang.Integer,java.lang.String> buildMeALambda();
+         *   // This is the function for [(param) -> "Values are: " + var + " - " + field * param;]
+         *   // in fact:
+         *   // private String foo(int var, Integer field) {
+         *   //   return "Values are: " + var + " - " + field * param;
+         *   // }
          *   private java.lang.String lambda$buildMeALambda$1(int, java.lang.Integer);
          *   }
          */
     }
 
-    public static class CaptureTest {
-        private int field;
-
-        public CaptureTest(int fieldValue) {
-            field = fieldValue;
-        }
-
-        public Function<Integer, String> buildMeALambda() {
-            int var = field * 2;
-            return (param) -> "Values are: " + var + " - " + field * param;
-        }
-
-    }
 }

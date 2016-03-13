@@ -15,7 +15,7 @@ class DifferenceBetweenLambdaAndAnonymousInnerClass {
         //Object lambda = () -> System.out.println("test2");
         //does not work is only because the compiler needs to know the functional interface in order to create an
         //object.
-        //In fact the compiler does not generate the object a compile time. The object is generated at runtime. The
+        //In fact the compiler does not generate the object at compile time. The object is generated at runtime. The
         //compiler only creates an dynamic call which in turn uses "asm" to generate the object.
         Object lambda = (Runnable) () -> System.out.println("test2");
 

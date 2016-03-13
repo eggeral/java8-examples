@@ -14,7 +14,7 @@ class DifferenceBetweenMethodRefAndLambda {
         // between lambda and method ref. Of course there is no need for the compiler to create a lambda method.
         // Also the method is not called by invokespecial but by invokevirtual.
 
-        aList.forEach(System.out::println);
+        aList.forEach(System.out::println); // foreach takes an Object of type Consumer
         /*
          * final class DifferenceBetweenMethodRefAndLambda$$Lambda$1 implements Consumer {
          *   private final PrintStream arg$1;

@@ -32,7 +32,9 @@ class DefaultAndStaticMethodsDecompiled {
     public static void main(String[] args) {
         DefaultAndStatic.printStatic();
 
+
         DefaultAndStatic defaultAndStatic = new DefaultAndStatic() {
+            // create an anonymous inner class
         };
 
         defaultAndStatic.print();
@@ -41,6 +43,7 @@ class DefaultAndStaticMethodsDecompiled {
     /*
      public static void main(java.lang.String[]);
     Code:
+       // static methods just get called
        0: invokestatic  #2                  // InterfaceMethod a_lambda/DefaultAndStatic.printStatic:()V
        3: new           #3                  // class a_lambda/DefaultAndStaticMethodsDecompiled$1
        6: dup

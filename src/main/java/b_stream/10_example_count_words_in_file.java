@@ -11,8 +11,8 @@ class CountWordsInFile {
     public static void main(String[] args) throws IOException {
         Pattern wordSeparator = Pattern.compile("[\\P{L}]+");
 
-        try(Stream<String> lines = Files.lines(Paths.get("frankenstein.txt"))) {
-            System.out.println(lines.flatMap(l -> wordSeparator.splitAsStream(l)).filter(x->x.length() > 10).count());
+        try (Stream<String> lines = Files.lines(Paths.get("frankenstein.txt"))) {
+            System.out.println(lines.flatMap(l -> wordSeparator.splitAsStream(l)).filter(x -> x.length() > 10).count());
         }
 
     }

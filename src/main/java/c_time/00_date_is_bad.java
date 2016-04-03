@@ -26,9 +26,9 @@ class DateIsBad {
         System.out.println(new Date(2015,1,1).getYear());
         System.out.println(new Date().getYear());
 
-
         //Day is one based but can be set 0 // ?? TRUE???
         Date date = new Date(0,0,0);
+        System.out.println(date);
 
         // Leap seconds are fun
 

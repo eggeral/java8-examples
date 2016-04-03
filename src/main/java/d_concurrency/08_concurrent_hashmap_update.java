@@ -23,7 +23,7 @@ class ConcurrentHashMapUpdate {
             do {
                 oldValue = map.get("c1");
                 newValue = oldValue + 1;
-            } while (!map.replace("c1", oldValue, newValue));
+            } while (!map.replace("c1", oldValue, newValue)); // retry until we get are correctly replacing the old value
         });
 
         System.out.println(map.get("c1"));

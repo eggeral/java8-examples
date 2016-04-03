@@ -16,6 +16,8 @@ class ConcurrentHashMapBulk {
         String result = map.search(2, // threshold for parallel processing
                 (key, value) -> (value == 2 || value == 4) ? key : null // null signals value not found (WTF)
         );
+
+
         System.out.println(result);
         // map.searchEntries();
         // map.searchKeys();

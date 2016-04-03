@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 // And there are some rules:
 //
 // Any function with more than one argument can be transformed into a function with just one argument (currying)
-//   x -> ( y -> x * x* + y * y)
+//   x -> ( y -> x * x + y * y)
 // And some others.
 //
 // Lambda calculus marks parameters with λ

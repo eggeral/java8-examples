@@ -28,6 +28,8 @@ class CombiningCompletableFuture {
         System.out.println("---");
         ForkJoinPool.commonPool().awaitQuiescence(10, TimeUnit.SECONDS);
 
+
+        // What about exceptions?
         CompletableFuture.supplyAsync(() -> 10l).thenApply(x -> {
             throw new NullPointerException(("BANG"));
         }).handle((r, e) -> {
@@ -47,7 +49,7 @@ class CombiningCompletableFuture {
 
         CompletableFuture.supplyAsync(() -> 10l)
                 .applyToEither(CompletableFuture.supplyAsync(() -> 20l),
-                        x -> x * 5)
+                        x -> x * 5) // 10 * 5 or 20 * 5 which ever completes first
                 .thenAccept(System.out::println);
         System.out.println("---");
         ForkJoinPool.commonPool().awaitQuiescence(10, TimeUnit.SECONDS);

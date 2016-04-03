@@ -11,7 +11,7 @@ class ReadWriteLocks {
     static volatile long counter;
 
     public static void main(String[] args) {
-        // ReadWriteLocks are better than synchronized because they allow
+        // It is said that ReadWriteLocks are better than synchronized because they allow
         // more than one reader if there is no writer.
         // But they are slow!
         Object mutex = new Object();

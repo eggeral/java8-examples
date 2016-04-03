@@ -39,14 +39,14 @@ class StampedLockClass {
         } , () -> {
             readWriteLock.readLock().lock();
             // Multiple readers go here at the same time!!!
-            // Still the performance ist bad -> they are almost useless.
+            // Still the performance is bad -> they are almost useless.
             if (counterA != counterB)
                 System.out.println("WARNING!!!!");
             readWriteLock.readLock().unlock();
         });
 
         // Stamped locks solve that problem
-        // As long as we have many more readers as writers (see measure method)
+        // As long as we have many more readers than writers (see measure method)
         StampedLock stampedLock = new StampedLock();
         measure(() -> {
             long stamp = stampedLock.writeLock();

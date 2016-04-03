@@ -25,7 +25,7 @@ class Constrains {
         // Stateful operations have undetermined output if streams are processed in parallel.
         List<Integer> number = Arrays.asList(1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6);
 
-        // Do this 4 times to show different results caused by parallel processing.
+        // Do this 5 times to show different results caused by parallel processing.
         for (int i = 0; i < 5; i++) {
             Set<Integer> seen = Collections.synchronizedSet(new HashSet<>());
             // if the value was already processed before we add 0 otherwise the element

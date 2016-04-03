@@ -28,7 +28,7 @@ class ParallelWordCounting {
         start = Instant.now();
         lines = Files.lines(Paths.get("frankenstein.txt"));
         System.out.println(lines.parallel().flatMap(l -> Arrays.stream(l.split("[\\P{L}]+")))
-                .collect(Collectors.groupingBy(w -> w.length(), Collectors.counting())));
+                .collect(Collectors.groupingByConcurrent(w -> w.length(), Collectors.counting())));
         System.out.println(Duration.between(start, Instant.now()));
     }
 }

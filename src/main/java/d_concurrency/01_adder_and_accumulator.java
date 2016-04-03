@@ -66,7 +66,7 @@ class AdderAndAccumulator {
         System.out.println(Duration.between(start, Instant.now()).toMillis());
         System.out.println(accumulator.get());
 
-        // The hold the intermediate result for each thread. sum/get calculates the
+        // The cells hold the intermediate result for each thread. sum/get calculates the
         // final result. Calling sum too often kills the performance!
 
         adder.reset();

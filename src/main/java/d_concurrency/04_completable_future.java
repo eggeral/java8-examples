@@ -14,14 +14,14 @@ class CompletableFutures {
         System.out.println("---");
 
         CompletableFuture future = CompletableFuture.supplyAsync(() -> doWork("w1", 99));
-        // normally there is no need to wait for a completable future!
+        // normally there is no need to wait for a completable future! But we do it here as part of the example
         future.get();
         System.out.println("---");
 
         future = CompletableFuture.supplyAsync(
                 () -> doWork("w1", 12))
                 .thenAcceptBoth(CompletableFuture.supplyAsync(
-                                () -> doWork("w2", 23)),
+                                () -> doWork("w2", 23)), // if w2 and w1 are done add the results
                         (result1, result2) -> System.out.println("sum = " + (result1 + result2)));
         ForkJoinPool.commonPool().awaitQuiescence(10, TimeUnit.SECONDS);
     }

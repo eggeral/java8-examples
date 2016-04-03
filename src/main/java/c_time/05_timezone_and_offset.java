@@ -12,8 +12,8 @@ class TimeZoneAndOffset {
         LocalDateTime landing = departure.plusHours(9).plusMinutes(25);
 
         // ZonedDateTime (deals with daylight saving time etc.
-        ZonedDateTime zonedDeparture = ZonedDateTime.of(departure, ZoneId.of("Europe/Vienna"));
-        ZonedDateTime zonedLanding = ZonedDateTime.of(landing, ZoneId.of("America/New_York"));
+        ZonedDateTime zonedDeparture = ZonedDateTime.of(departure, ZoneId.of("Europe/Sidney"));
+        ZonedDateTime zonedLanding = ZonedDateTime.of(landing, ZoneId.of("America/Ankorage"));
 
         System.out.println(zonedDeparture);
         System.out.println(zonedLanding); // hm that's wrong :-(

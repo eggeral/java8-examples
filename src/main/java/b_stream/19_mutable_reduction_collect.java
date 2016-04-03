@@ -4,6 +4,8 @@ import java.util.stream.Stream;
 
 class MutableReductionCollect {
     public static void main(String[] args) {
+
+
         // A lot of string copies ahead.
         String flights = Stream.of("OS201", "OS202", "LH4567").reduce(
                 "", (current, next) -> current + ", " + next);

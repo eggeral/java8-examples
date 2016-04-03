@@ -3,7 +3,7 @@ package d_concurrency;
 import java.util.concurrent.atomic.AtomicInteger;
 
 class AtomicValues {
-    static int shared = 0;
+    static volatile int shared = 0;
     static AtomicInteger atomicShared = new AtomicInteger(0);
 
     public static void main(String[] args) throws InterruptedException {

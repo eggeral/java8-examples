@@ -22,8 +22,8 @@ class Reductions {
         System.out.println(flights.stream().filter(x -> x.name.startsWith("OS")).count());
         System.out.println("---");
 
-        System.out.println("Total passengers of FH flights");
-        System.out.println(flights.stream().filter(x -> x.name.startsWith("FH")).mapToInt(x -> x.passengers).sum());
+        System.out.println("Total passengers of LH flights");
+        System.out.println(flights.stream().filter(x -> x.name.startsWith("LH")).mapToInt(x -> x.passengers).sum());
         System.out.println("---");
 
         System.out.println("Average number of passengers of 4U flights");

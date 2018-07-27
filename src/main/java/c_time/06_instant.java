@@ -1,7 +1,5 @@
 package c_time;
 
-import com.sun.tools.internal.xjc.runtime.ZeroOneBooleanAdapter;
-
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
